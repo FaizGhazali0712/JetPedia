@@ -1,0 +1,179 @@
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  animation: fadeIn 0.3s;
+  padding: 20px;
+}
+
+.popup-content {
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+  position: relative;
+  max-width: 600px;
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+.popup-content h2 {
+  margin: 0 0 20px 0;
+  font-size: 24px;
+  font-weight: 700;
+  color: #0f2540;
+  border-bottom: 2px solid #0f2540;
+  padding-bottom: 10px;
+}
+
+.popup-content h3 {
+  margin: 20px 0 12px 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: #1e3a5f;
+}
+
+.popup-section {
+  margin-bottom: 20px;
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.info-item,
+.spec-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.info-item.full-width,
+.spec-item.full-width {
+  grid-column: 1 / -1;
+}
+
+.info-item .label,
+.spec-item .label {
+  font-weight: 600;
+  color: #666;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.info-item .value,
+.spec-item .value {
+  color: #333;
+  font-size: 14px;
+}
+
+.spec-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  cursor: pointer;
+  font-size: 28px;
+  color: #666;
+  transition: color 150ms ease;
+  line-height: 1;
+}
+
+.close:hover {
+  color: #0f2540;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Card hover + image overlay */
+.jet-card {
+  transition: transform 220ms ease, box-shadow 220ms ease;
+}
+.jet-card:hover {
+  transform: translateY(-6px) scale(1.01);
+  box-shadow: 0 10px 30px rgba(15,37,64,0.12);
+}
+
+.jet-image-wrapper {
+  position: relative;
+  overflow: hidden;
+}
+.jet-image-wrapper img {
+  transition: transform 350ms ease;
+}
+.jet-card:hover .jet-image-wrapper img {
+  transform: scale(1.08);
+}
+
+.image-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  padding: 10px;
+  background: linear-gradient(180deg, rgba(0,0,0,0) 40%, rgba(0,0,0,0.35) 100%);
+  opacity: 0;
+  transition: opacity 200ms ease;
+}
+.jet-card:hover .image-overlay,
+.jet-image-wrapper:focus-within .image-overlay {
+  opacity: 1;
+}
+
+.overlay-btn {
+  background: rgba(255,255,255,0.95);
+  color: #0f2540;
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  border: none;
+  cursor: pointer;
+  transition: all 200ms ease;
+}
+
+.overlay-btn:hover {
+  background: white;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  transform: translateY(-1px);
+}
+
+.favorite-btn {
+  background: transparent;
+  border: none;
+  font-size: 18px;
+  color: rgba(255,255,255,0.9);
+  text-shadow: 0 1px 2px rgba(0,0,0,0.4);
+  cursor: pointer;
+}
+.favorite-active { color: #ffb020 !important; }
+
+/* Popup improvements */
+.popup-content h2 { margin-top: 0; }
+.armament-list { margin: 0; padding-left: 1rem; }
+.armament-item { margin-bottom: 0.35rem; }
+
+/* Toolbar small utilities */
+.toolbar-actions { display:flex; gap:8px; align-items:center }
+.chip { padding:6px 10px; border-radius:999px; background:#f1f5f9; font-size:13px; cursor:pointer }
+.chip.active { background:#0f2540; color:white }

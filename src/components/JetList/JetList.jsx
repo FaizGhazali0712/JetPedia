@@ -1,19 +1,27 @@
 import React, { useEffect, useState } from 'react'
 import defaultJets from '../../data/jet.json'
+import './JetList.css'; // Importing CSS for styling
 
 export default function JetList({ data = defaultJets, defaultSort = 'name', initialQuery = '',  } ) {
   const [query, setQuery] = useState(initialQuery)
   const [sort, setSort] = useState(defaultSort)
   const [filtered, setFiltered] = useState(() => {
-    // initial sort
     const list = data.slice()
     return sort === 'price' ? list.sort((a, b) => (a.price_musd || 0) - (b.price_musd || 0)) : list.sort((a, b) => a.name.localeCompare(b.name))
   })
   const [showPopup, setShowPopup] = useState(false)
   const [selectedArmament, setSelectedArmament] = useState(null)
+  const [favorites, setFavorites] = useState(() => {
+    try {
+      const raw = localStorage.getItem('favorites')
+      return raw ? JSON.parse(raw) : []
+    // eslint-disable-next-line no-unused-vars
+    } catch (e) { return [] }
+  })
+  const [showOnlyFavorites, setShowOnlyFavorites] = useState(false)
 
   useEffect(() => {
-    // Recompute filtered list when data, query, or sort changes
+    // Recompute filtered list when data, query, sort, or favorites changes
     const q = query.trim().toLowerCase()
     let list = data.filter((j) => {
       if (!q) return true
@@ -23,21 +31,32 @@ export default function JetList({ data = defaultJets, defaultSort = 'name', init
       )
     })
 
+    if (showOnlyFavorites) list = list.filter((j) => favorites.includes(j.id))
+
     if (sort === 'price') list = list.slice().sort((a, b) => (a.price_musd || 0) - (b.price_musd || 0))
     else list = list.slice().sort((a, b) => a.name.localeCompare(b.name))
 
     // eslint-disable-next-line react-hooks/set-state-in-effect
     setFiltered(list)
-  }, [data, query, sort])
+  }, [data, query, sort, favorites, showOnlyFavorites])
 
   const toggleArmament = (jet) => {
     setSelectedArmament(jet)
     setShowPopup(true)
   }
 
+  const toggleFavorite = (id) => {
+    setFavorites(prev => {
+      const next = prev.includes(id) ? prev.filter(x => x !== id) : [...prev, id]
+      // eslint-disable-next-line no-unused-vars
+      try { localStorage.setItem('favorites', JSON.stringify(next)) } catch (e) { /* empty */ }
+      return next
+    })
+  }
+
   const closePopup = () => {
-    setShowPopup(false)
-    setSelectedArmament(null)
+    setShowPopup(false);
+    setSelectedArmament(null);
   }
 
   return (
@@ -66,19 +85,46 @@ export default function JetList({ data = defaultJets, defaultSort = 'name', init
               <option value="name">Sort: Name</option>
               <option value="price">Sort: Price (low to high)</option>
             </select>
+
+            <div className="toolbar-actions ml-2">
+              <button
+                onClick={() => setShowOnlyFavorites(s => !s)}
+                className={`chip ${showOnlyFavorites ? 'active' : ''}`}
+                aria-pressed={showOnlyFavorites}
+                title="Toggle show only favorites"
+              >
+                {showOnlyFavorites ? 'Showing favorites' : 'Show favorites'}
+              </button>
+              <div className="text-sm text-gray-600">{favorites.length} saved</div>
+            </div>
           </div>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {filtered.map((jet) => (
-            <article key={jet.id} className="bg-white rounded-lg shadow hover:shadow-md overflow-hidden flex flex-col">
-              <div className="h-44 bg-gray-100">
+            <article key={jet.id} className="jet-card bg-white rounded-lg shadow overflow-hidden flex flex-col">
+              <div className="h-44 bg-gray-100 jet-image-wrapper" tabIndex={0}>
                 <img
                   src={jet.image}
                   alt={jet.imageAlt || jet.name}
                   className="w-full h-44 object-cover"
                   loading="lazy"
                 />
+
+                <div className="image-overlay">
+                  <button
+                    title="Toggle favorite"
+                    onClick={() => toggleFavorite(jet.id)}
+                    className={`favorite-btn ${favorites.includes(jet.id) ? 'favorite-active' : ''}`}
+                    aria-pressed={favorites.includes(jet.id)}
+                  >
+                    {favorites.includes(jet.id) ? '★' : '☆'}
+                  </button>
+
+                  <div style={{display:'flex',gap:8}}>
+                    <button className="overlay-btn" onClick={() => toggleArmament(jet)}>View armament</button>
+                  </div>
+                </div>
               </div>
 
               <div className="p-4 flex-1 flex flex-col">
@@ -139,19 +185,80 @@ export default function JetList({ data = defaultJets, defaultSort = 'name', init
       </section>
 
       {showPopup && selectedArmament && (
-        <div className="fixed inset-0 flex items-center justify-center z-50">
-          <div className="bg-white rounded-lg shadow-lg p-6 max-w-sm w-full">
-            <div className="flex justify-between items-center mb-4">
-              <h2 className="text-lg font-semibold text-[#0f2540]">{selectedArmament.name} Armament</h2>
-              <button onClick={closePopup} className="text-gray-500 hover:text-gray-700">
-                &times;
-              </button>
+        <div onClick={closePopup} className="popup-overlay">
+          <div className="popup-content" onClick={(e) => e.stopPropagation()}>
+            <span className="close" onClick={closePopup}>&times;</span>
+            <h2>{selectedArmament.name}</h2>
+            
+            {/* Basic Info */}
+            <div className="popup-section">
+              <div className="info-grid">
+                <div className="info-item">
+                  <span className="label">Origin:</span>
+                  <span className="value">{selectedArmament.origin || '—'}</span>
+                </div>
+                <div className="info-item">
+                  <span className="label">Role:</span>
+                  <span className="value">{selectedArmament.role || '—'}</span>
+                </div>
+                <div className="info-item">
+                  <span className="label">First Flight:</span>
+                  <span className="value">{selectedArmament.firstFlight || '—'}</span>
+                </div>
+                <div className="info-item">
+                  <span className="label">Service Entry:</span>
+                  <span className="value">{selectedArmament.serviceEntry || '—'}</span>
+                </div>
+                <div className="info-item">
+                  <span className="label">Crew:</span>
+                  <span className="value">{selectedArmament.crew || '—'}</span>
+                </div>
+                <div className="info-item">
+                  <span className="label">Price:</span>
+                  <span className="value">${selectedArmament.price_musd}M</span>
+                </div>
+              </div>
             </div>
 
-            <div className="max-h-60 overflow-y-auto">
-              <pre className="text-sm text-gray-700 whitespace-pre-wrap">
-                {JSON.stringify(selectedArmament.armamentData, null, 2)}
-              </pre>
+            {/* Performance Specs */}
+            <div className="popup-section">
+              <h3>Performance Specifications</h3>
+              <div className="spec-grid">
+                <div className="spec-item">
+                  <span className="label">Top Speed:</span>
+                  <span className="value">Mach {selectedArmament.topSpeedMach}</span>
+                </div>
+                <div className="spec-item">
+                  <span className="label">Service Ceiling:</span>
+                  <span className="value">{selectedArmament.serviceCeiling_ft ? `${selectedArmament.serviceCeiling_ft} ft` : '—'}</span>
+                </div>
+                <div className="spec-item">
+                  <span className="label">Combat Radius:</span>
+                  <span className="value">{selectedArmament.combatRadius_km ? `${selectedArmament.combatRadius_km} km` : '—'}</span>
+                </div>
+                <div className="spec-item">
+                  <span className="label">Range:</span>
+                  <span className="value">{selectedArmament.range_km ? `${selectedArmament.range_km} km` : '—'}</span>
+                </div>
+                <div className="spec-item full-width">
+                  <span className="label">Engine:</span>
+                  <span className="value">{selectedArmament.engine || '—'}</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Armament */}
+            <div className="popup-section">
+              <h3>Armament</h3>
+              {selectedArmament.armament && Array.isArray(selectedArmament.armament) && selectedArmament.armament.length > 0 ? (
+                <ul className="armament-list">
+                  {selectedArmament.armament.map((item, idx) => (
+                    <li key={idx} className="armament-item">{item}</li>
+                  ))}
+                </ul>
+              ) : (
+                <p className="text-sm text-gray-600">No armament data available.</p>
+              )}
             </div>
           </div>
         </div>

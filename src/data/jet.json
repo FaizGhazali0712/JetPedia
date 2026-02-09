@@ -325,4 +325,326 @@
     "imageAlt": "KAI KF-21 Boramae prototype",
     "imageCaption": "KF-21 Boramae developmental fighter (placeholder image)"
   }
+
+  ,
+  {
+    "id": "a10",
+    "name": "Fairchild Republic A-10 Thunderbolt II",
+    "origin": "United States",
+    "firstFlight": 1972,
+    "serviceEntry": 1977,
+    "crew": 1,
+    "role": "Close air support / ground attack",
+    "topSpeedMach": 0.56,
+    "serviceCeiling_ft": 45000,
+    "combatRadius_km": 290,
+    "range_km": 3700,
+    "engine": "2× General Electric TF34-GE-100 turbofans",
+    "price_musd": 11,
+    "armament": [
+      "1× GAU-8/A Avenger 30 mm cannon",
+      "AGM-65 Maverick, laser-guided bombs, rockets"
+    ],
+    "image": "https://th.bing.com/th/id/OIP.NKcBjGJjh1byMvui4TPElAHaE8?w=242&h=180&c=7&r=0&o=7&pid=1.7&rm=3",
+    "imageAlt": "A-10 Thunderbolt II",
+    "imageCaption": "A-10 'Warthog' close air support aircraft"
+  },
+  {
+    "id": "tornado",
+    "name": "Panavia Tornado",
+    "origin": "UK / Germany / Italy",
+    "firstFlight": 1974,
+    "serviceEntry": 1979,
+    "crew": 2,
+    "role": "Multirole (interdictor / strike)",
+    "topSpeedMach": 2.2,
+    "serviceCeiling_ft": 50000,
+    "combatRadius_km": 1350,
+    "range_km": 2900,
+    "engine": "2× Turbo-Union RB199 turbofans",
+    "price_musd": 30,
+    "armament": [
+      "Guns (variant dependent)",
+      "Storm Shadow/SCALP, Brimstone, Paveway, anti-ship missiles"
+    ],
+    "image": "https://th.bing.com/th/id/OIP.qMOiUwgwXZBudvj5PJVTSwHaEO?w=292&h=180&c=7&r=0&o=7&pid=1.7&rm=3",
+    "imageAlt": "Panavia Tornado",
+    "imageCaption": "Panavia Tornado multirole strike aircraft"
+  },
+  {
+    "id": "f4",
+    "name": "McDonnell Douglas F-4 Phantom II",
+    "origin": "United States",
+    "firstFlight": 1958,
+    "serviceEntry": 1960,
+    "crew": 2,
+    "role": "Interceptor / multirole fighter",
+    "topSpeedMach": 2.23,
+    "serviceCeiling_ft": 60000,
+    "combatRadius_km": 680,
+    "range_km": 2400,
+    "engine": "2× General Electric J79 turbojets",
+    "price_musd": 5,
+    "armament": [
+      "AIM-7 Sparrow, AIM-9 Sidewinder",
+      "Various bombs and rockets depending on mission"
+    ],
+    "image": "https://tse2.mm.bing.net/th/id/OIP.Zc4M2LWauYVZkcaBPY8q-wHaEd?rs=1&pid=ImgDetMain&o=7&rm=3",
+    "imageAlt": "F-4 Phantom II",
+    "imageCaption": "F-4 Phantom II classic supersonic fighter"
+  },
+  {
+    "id": "f117",
+    "name": "Lockheed F-117 Nighthawk",
+    "origin": "United States",
+    "firstFlight": 1981,
+    "serviceEntry": 1983,
+    "crew": 1,
+    "role": "Stealth attack aircraft",
+    "topSpeedMach": 0.92,
+    "serviceCeiling_ft": 45000,
+    "combatRadius_km": 900,
+    "range_km": 2200,
+    "engine": "2× General Electric F404-derived turbofans (modified)",
+    "price_musd": 44,
+    "armament": [
+      "Precision-guided bombs (internal payload)"
+    ],
+    "image": "https://th.bing.com/th/id/OIP.dGJ6qdv_xkVYyiDgf9BPawHaF-?o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3",
+    "imageAlt": "F-117 Nighthawk",
+    "imageCaption": "F-117 stealth attack aircraft (retired)"
+  },
+  {
+    "id": "mirage2000",
+    "name": "Dassault Mirage 2000",
+    "origin": "France",
+    "firstFlight": 1978,
+    "serviceEntry": 1984,
+    "crew": 1,
+    "role": "Multirole/air superiority fighter",
+    "topSpeedMach": 2.2,
+    "serviceCeiling_ft": 59000,
+    "combatRadius_km": 560,
+    "range_km": 3100,
+    "engine": "1× SNECMA M53 turbofan",
+    "price_musd": 30,
+    "armament": [
+      "1× 30 mm DEFA cannon",
+      "MICA, Magic air-to-air missiles, guided bombs"
+    ],
+    "image": "https://th.bing.com/th/id/OIP.-owdU49366U5neiIN9uXDAHaFj?o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3",
+    "imageAlt": "Dassault Mirage 2000",
+    "imageCaption": "Mirage 2000 multirole fighter"
+  },
+  {
+    "id": "j10",
+    "name": "Chengdu J-10",
+    "origin": "China",
+    "firstFlight": 1998,
+    "serviceEntry": 2005,
+    "crew": 1,
+    "role": "Multirole fighter",
+    "topSpeedMach": 2.2,
+    "serviceCeiling_ft": 59000,
+    "combatRadius_km": 800,
+    "range_km": 3000,
+    "engine": "WS-10 or AL-31 derivative (varies)",
+    "price_musd": 25,
+    "armament": [
+      "30 mm cannon",
+      "PL-12 / PL-10 air-to-air missiles, guided bombs"
+    ],
+    "image": "https://www.airforce-technology.com/wp-content/uploads/sites/6/2020/10/Image-1-J-10.jpg",
+    "imageAlt": "Chengdu J-10",
+    "imageCaption": "J-10 lightweight multirole fighter"
+  },
+  {
+    "id": "j11",
+    "name": "Shenyang J-11",
+    "origin": "China",
+    "firstFlight": 1998,
+    "serviceEntry": 1998,
+    "crew": 1,
+    "role": "Air superiority / multirole",
+    "topSpeedMach": 2.35,
+    "serviceCeiling_ft": 56000,
+    "combatRadius_km": 950,
+    "range_km": 3600,
+    "engine": "AL-31FN or licensed variants",
+    "price_musd": 40,
+    "armament": [
+      "30 mm cannon, PL-series AAMs, anti-ship and air-to-ground weapons"
+    ],
+    "image": "https://imgproc.airliners.net/photos/airliners/2/5/2/2309252.jpg?v=v40",
+    "imageAlt": "Shenyang J-11",
+    "imageCaption": "J-11 derived from Su-27 family"
+  },
+  {
+    "id": "mig21",
+    "name": "Mikoyan-Gurevich MiG-21",
+    "origin": "Soviet Union",
+    "firstFlight": 1955,
+    "serviceEntry": 1959,
+    "crew": 1,
+    "role": "Light interceptor / fighter",
+    "topSpeedMach": 2.05,
+    "serviceCeiling_ft": 59000,
+    "combatRadius_km": 360,
+    "range_km": 1500,
+    "engine": "1× Tumansky/R-11/R-13 turbojet",
+    "price_musd": 1.5,
+    "armament": [
+      "23 mm cannon variants, short-range AAMs, rockets"
+    ],
+    "image": "https://p.turbosquid.com/ts-thumb/13/iVapNy/aL/mig21/jpg/1644385288/1920x1080/fit_q87/15e6e40760e9c1f59c530b43e83750e91ce209c9/mig21.jpg",
+    "imageAlt": "MiG-21",
+    "imageCaption": "MiG-21 'Fishbed' classic Cold War fighter"
+  },
+  {
+    "id": "mig23",
+    "name": "Mikoyan-Gurevich MiG-23",
+    "origin": "Soviet Union",
+    "firstFlight": 1967,
+    "serviceEntry": 1970,
+    "crew": 1,
+    "role": "Variable-geometry multirole fighter",
+    "topSpeedMach": 2.35,
+    "serviceCeiling_ft": 55000,
+    "combatRadius_km": 700,
+    "range_km": 2000,
+    "engine": "1× Tumansky R-35-300 afterburning turbojet",
+    "price_musd": 3,
+    "armament": [
+      "30 mm cannon, R-23/R-24 air-to-air missiles, bombs"
+    ],
+    "image": "https://tse4.mm.bing.net/th/id/OIP.ilcrKUf9jIEZGQb1-vl7pwHaE6?rs=1&pid=ImgDetMain&o=7&rm=3",
+    "imageAlt": "MiG-23",
+    "imageCaption": "MiG-23 variable-sweep wing fighter"
+  },
+  {
+    "id": "av8b",
+    "name": "McDonnell Douglas / BAE Systems AV-8B Harrier II",
+    "origin": "United States / UK",
+    "firstFlight": 1978,
+    "serviceEntry": 1985,
+    "crew": 1,
+    "role": "V/STOL ground-attack / multirole",
+    "topSpeedMach": 0.9,
+    "serviceCeiling_ft": 45000,
+    "combatRadius_km": 740,
+    "range_km": 2200,
+    "engine": "1× Rolls-Royce Pegasus vectored-thrust turbofan",
+    "price_musd": 28,
+    "armament": [
+      "30 mm ADEN cannon (pod), rockets, bombs, air-to-ground missiles"
+    ],
+    "image": "https://crewdaily.com/wp-content/uploads/2019/08/AV-8B-Harrier-II1.jpg",
+    "imageAlt": "AV-8B Harrier II",
+    "imageCaption": "Harrier II V/STOL attack aircraft"
+  },
+  {
+    "id": "su24",
+    "name": "Sukhoi Su-24",
+    "origin": "Russia",
+    "firstFlight": 1967,
+    "serviceEntry": 1974,
+    "crew": 2,
+    "role": "All-weather attack aircraft",
+    "topSpeedMach": 1.6,
+    "serviceCeiling_ft": 52000,
+    "combatRadius_km": 615,
+    "range_km": 3900,
+    "engine": "2× Saturn/Lyulka AL-21F-3 afterburning turbojets",
+    "price_musd": 12,
+    "armament": [
+      "GSh-6-23 cannon variants, guided bombs, Kh-series missiles"
+    ],
+    "image": "https://tse2.mm.bing.net/th/id/OIP.v0NxUXYtJ2lqBzLuR1LywQHaEo?rs=1&pid=ImgDetMain&o=7&rm=3",
+    "imageAlt": "Sukhoi Su-24",
+    "imageCaption": "Su-24 supersonic attack aircraft"
+  },
+  {
+    "id": "su25",
+    "name": "Sukhoi Su-25",
+    "origin": "Russia",
+    "firstFlight": 1975,
+    "serviceEntry": 1981,
+    "crew": 1,
+    "role": "Close air support / attack aircraft",
+    "topSpeedMach": 0.82,
+    "serviceCeiling_ft": 15000,
+    "combatRadius_km": 375,
+    "range_km": 1800,
+    "engine": "2× R-95Sh turbofan engines",
+    "price_musd": 8,
+    "armament": [
+      "30 mm GSh-30-2 cannon, rockets, bombs, guided munitions"
+    ],
+    "image": "https://tse1.mm.bing.net/th/id/OIP.yJLMz2Z65cIbSPEMqd5LnAHaEK?rs=1&pid=ImgDetMain&o=7&rm=3",
+    "imageAlt": "Sukhoi Su-25",
+    "imageCaption": "Su-25 ground-attack aircraft"
+  },
+  {
+    "id": "hawk",
+    "name": "BAE Systems Hawk",
+    "origin": "United Kingdom",
+    "firstFlight": 1974,
+    "serviceEntry": 1976,
+    "crew": 2,
+    "role": "Advanced jet trainer / light attack",
+    "topSpeedMach": 0.84,
+    "serviceCeiling_ft": 45000,
+    "combatRadius_km": 800,
+    "range_km": 2500,
+    "engine": "1× Rolls-Royce Turbomeca Adour turbofan",
+    "price_musd": 10,
+    "armament": [
+      "Training armament, light bombs, rocket pods on some variants"
+    ],
+    "image": "https://aerocorner.com/wp-content/uploads/2021/07/Hawk-RIAT-2011.jpg",
+    "imageAlt": "BAE Hawk",
+    "imageCaption": "Hawk advanced trainer and light attack aircraft"
+  },
+  {
+    "id": "t50",
+    "name": "KAI T-50 Golden Eagle / FA-50",
+    "origin": "South Korea",
+    "firstFlight": 2002,
+    "serviceEntry": 2005,
+    "crew": 2,
+    "role": "Advanced trainer / light combat",
+    "topSpeedMach": 1.4,
+    "serviceCeiling_ft": 50000,
+    "combatRadius_km": 800,
+    "range_km": 3000,
+    "engine": "1× General Electric F404 turbofan",
+    "price_musd": 28,
+    "armament": [
+      "20 mm cannon, AIM-9 missiles, guided bombs on FA-50"
+    ],
+    "image": "https://th.bing.com/th/id/R.4c4168d46c8f415101c5ac00b4c5d457?rik=uABfAQBZLkcJ1g&riu=http%3a%2f%2fwww.globalsecurity.org%2fmilitary%2fworld%2frok%2fimages%2ft50pr011031.jpg&ehk=D7SbbbuKCp8NtkgwNFS8ZrgPZWiu%2bKwIMoVWf6bF5EI%3d&risl=&pid=ImgRaw&r=0",
+    "imageAlt": "KAI T-50 Golden Eagle",
+    "imageCaption": "T-50 family trainer and light combat variant FA-50"
+  },
+  {
+    "id": "f5",
+    "name": "Northrop F-5 Freedom Fighter",
+    "origin": "United States",
+    "firstFlight": 1959,
+    "serviceEntry": 1962,
+    "crew": 1,
+    "role": "Light supersonic fighter / trainer",
+    "topSpeedMach": 1.63,
+    "serviceCeiling_ft": 51000,
+    "combatRadius_km": 500,
+    "range_km": 2200,
+    "engine": "2× General Electric J85 turbojets",
+    "price_musd": 1.5,
+    "armament": [
+      "20 mm cannon, short-range AAMs, bombs/rockets"
+    ],
+    "image": "https://tse4.mm.bing.net/th/id/OIP.R8kels2Hsw-EKulyg-W3lwHaE6?rs=1&pid=ImgDetMain&o=7&rm=3",
+    "imageAlt": "Northrop F-5",
+    "imageCaption": "F-5 light fighter and trainer"
+  }
 ]
